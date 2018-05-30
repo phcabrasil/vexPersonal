@@ -1,0 +1,207 @@
+#include "main.h"
+#include "autofunctions.h"
+#include "lcdfunctions.h"
+#include "drive.h"
+#include "intake.h"
+#include "chainbar.h"
+#include "mogo.h"
+#include "arm.h"
+
+#define UP -1
+#define DOWN 1
+#define FORWARD 1
+#define BACK -1
+#define RIGHT 1
+#define LEFT -1
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+void skills() { //Skills
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void threetwentyright() { //3 Cone Mobile 20 Right
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void threetwentyleft() { //3 Cone Mobile 20 Left
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+void twotwentyright(){ //2 Cone Mobile 20 Left
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void twotwentyleft(){
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+void stationarygoalred() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void stationarygoalblue(){
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void threetenright() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void threetenleft() {
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+void threefiveright() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void threefiveleft() {
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+void trickright() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void trickleft() {
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+void farmogoright() {
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void farmogoleft() {
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+void defence() {
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+void test(){
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+void noauto() {
+
+}
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+void autonomous(){
+
+//TaskHandle armHandle = taskCreate(arm, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
+
+switch(myauto){
+
+    case -1:
+    noauto();
+    break;
+
+    case 0:
+    skills();
+    break;
+
+    case 1:
+    threetwentyright();
+    break;
+
+    case 2:
+    threetwentyleft();
+    break;
+
+    case 3:
+    twotwentyright();
+    break;
+
+    case 4:
+    twotwentyleft();
+    break;
+
+    case 5:
+    stationarygoalred();
+    break;
+
+    case 6:
+    stationarygoalblue();
+    break;
+
+    case 7:
+    threetenright();
+    break;
+
+    case 8:
+    threetenleft();
+    break;
+
+    case 9:
+    threefiveright();
+    break;
+
+    case 10:
+    threefiveleft();
+    break;
+
+    case 11:
+    trickright();
+    break;
+
+    case 12:
+    trickleft();
+    break;
+
+    case 13:
+    farmogoright();
+    break;
+
+    case 14:
+    farmogoleft();
+    break;
+
+    case 15:
+    defence();
+    break;
+
+    case 16:
+    test();
+    break;
+
+ }
+}
