@@ -10,12 +10,12 @@ extern "C" {
 #endif
 
 #define bumperLeft 1
-#define bumberRight 2
+#define bumperRight 2
 #define puncherButton 3
 
 #define puncher 2
 #define bumperL 1
-#define bumberR 10
+#define bumperR 3
 
 void autonomous();
 void initializeIO();
