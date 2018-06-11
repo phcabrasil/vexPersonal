@@ -12,18 +12,14 @@ void operatorControl() {
 			motorSet(bumperL, 127);
 		}
 		else {
-			motorSet(bumperL, -127);
-			delay(1000);
-			motorSet(bumperL, -10);
+			motorSet(bumperL, -20);
 		}
 		if (digitalRead(bumperRight)==LOW){
-			motorSet(bumperR, 127);
+			motorSet(bumperR, -127);
 		}
 		else {
-			motorSet(bumperR, -127);
-			delay(1000);
-			motorSet(bumperR, -10);
+			motorSet(bumperR, 20);
 		}
-		delay(20);
+		delay(10);
 	}
 }
