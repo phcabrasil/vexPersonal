@@ -1,8 +1,14 @@
 #include "main.h"
 
 void moveDrive(int left, int right){
-    motorSet(DRIVE_LF, (left));
-    motorSet(DRIVE_LB, (left));
-    motorSet(DRIVE_RF, -(right));
-    motorSet(DRIVE_RB, (right));
+
+    motorSet(frontLeft1,-left);
+    motorSet(frontLeft2,left);
+    motorSet(frontRight1,right);
+    motorSet(frontRight2,right);
+    motorSet(backLeft1,-left);
+    motorSet(backLeft2,-left);
+    motorSet(backRight1,right);
+    motorSet(backRight2,right);
+
 }

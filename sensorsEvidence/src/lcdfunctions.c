@@ -2,10 +2,6 @@
 #include "autofunctions.h"
 #include "lcdfunctions.h"
 #include "drive.h"
-#include "intake.h"
-#include "chainbar.h"
-#include "mogo.h"
-#include "arm.h"
 
 void disablelcd(void *ignore){
 
@@ -19,12 +15,7 @@ void disablelcd(void *ignore){
     delay(25);
 
     if(!isEnabled()){
-      digitalWrite(LED_RED, HIGH);
-      digitalWrite(LED_GRN, LOW);
-      digitalWrite(LED_YLW, LOW);
-      if(digitalRead(BUTTON) == LOW){
-        resetEverything(); //if button is pressed, reset all the sensors
-      }
+
       switch(screen){
 
         case 1:
@@ -47,40 +38,40 @@ void disablelcd(void *ignore){
         break;
 
         case 2:
-        lcdPrint(uart1, 1, "Arm = %d", analogRead(ARMPOT));
-        lcdPrint(uart1, 2, "Chainbar = %d", analogRead(CHAINPOT));
+        lcdPrint(uart1, 1, "Distance = %d", getDistance);
+        lcdPrint(uart1, 2, "Position Arm = %d", getPosition);
           if(lcdReadButtons(uart1) == 2){
               lcdClear(uart1);
               lcdSetText(uart1, 1, "Please wait...");
               delay(btn_time);
               screen = screen + 1;}
-          if(lcdReadButtons(uart1) == 1){moveArm(90);}
-          if(lcdReadButtons(uart1) == 4){moveChainBar(-90);}
+          if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+          if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
 
         break;
 
         case 3:
-        lcdPrint(uart1, 1, "Encoder R = %d", encoderGet(encoderR));
-        lcdPrint(uart1, 2, "Gyro = %d", gyroGet(gyro));
+        lcdPrint(uart1, 1, "Encoder R = %d", getTicksR);
+        lcdPrint(uart1, 2, "Gyro = %d", getAngle);
           if(lcdReadButtons(uart1) == 2){
               lcdClear(uart1);
               lcdSetText(uart1, 1, "Please wait...");
               delay(btn_time);
               screen = screen + 1;}
-          if(lcdReadButtons(uart1) == 1){moveDrive(0,90);}
-          if(lcdReadButtons(uart1) == 4){moveIntake(90);}
+          if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+          if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
         break;
 
         case 4:
-        lcdPrint(uart1, 1, "Encoder L = %d", encoderGet(encoderL));
-        lcdPrint(uart1, 2, "MOGO = %d", analogRead(MOGOPOT));
+        lcdPrint(uart1, 1, "Encoder L = %d", getTicksL);
+        lcdPrint(uart1, 2, "MEMES");
           if(lcdReadButtons(uart1) == 2){
               lcdClear(uart1);
               lcdSetText(uart1, 1, "Please wait...");
               delay(btn_time);
               screen = screen + 1;}
-          if(lcdReadButtons(uart1) == 1){moveDrive(90,0);}
-          if(lcdReadButtons(uart1) == 4){moveMogo(-90);}
+          if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+          if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
         break;
 
         default:
@@ -151,8 +142,9 @@ void disablelcd(void *ignore){
           case 16:
             lcdSetText(uart1, 2, "Test");
           break;
-          }}
-          delay(20);
+          }
+        }
+      delay(20);
   }
   else{delay(50);}
   }
@@ -167,51 +159,32 @@ void opcontrollcd(void *ignore){
   lcdClear(uart1);
 
   while(isEnabled()){
-    delay(25);
-    digitalWrite(LED_RED, LOW);
-    digitalWrite(LED_GRN, HIGH);
-    digitalWrite(LED_YLW, LOW);
+
     switch(screen){
 
       case 1:
-      lcdPrint(uart1, 1, "Gyro = %d", gyroGet(gyro));
-      lcdPrint(uart1, 2, "Encoder R = %d", encoderGet(encoderR));
+      lcdPrint(uart1, 1, "Gyro = %d", getAngle);
+      lcdPrint(uart1, 2, "Encoder R = %d", getTicksR);
         if(lcdReadButtons(uart1) == 2){
           lcdClear(uart1);
           lcdSetText(uart1, 1, "Please wait...");
           delay(btn_time);
           screen = screen + 1;}
-        if(lcdReadButtons(uart1) == 1){
-          encoderReset(encoderR);
-          gyroReset(gyro);
-          delay(50);
-        }
-        if(lcdReadButtons(uart1) == 4){
-          analogCalibrate(CHAINBAR);
-          analogCalibrate(ARMPOT);
-          delay(50);
-        }
+        if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+        if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
       break;
 
       case 2:
-      lcdPrint(uart1, 1, "Arm = %d", analogRead(ARMPOT));
-      lcdPrint(uart1, 2, "Chainbar = %d", analogRead(CHAINPOT));
+      lcdPrint(uart1, 1, "Position = %d", getPosition);
+      lcdPrint(uart1, 2, "Distance = %d", getDistance);
         if(lcdReadButtons(uart1) == 2){
           lcdClear(uart1);
           lcdSetText(uart1, 1, "Please wait...");
           delay(btn_time);
           screen = screen + 1;
         }
-        if(lcdReadButtons(uart1) == 1){
-          encoderReset(encoderR);
-          gyroReset(gyro);
-          delay(50);
-        }
-        if(lcdReadButtons(uart1) == 4){
-          analogCalibrate(CHAINBAR);
-          analogCalibrate(ARMPOT);
-          delay(50);
-        }
+        if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+        if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
       break;
 
       default:
@@ -235,51 +208,32 @@ void autolcd(void *ignore){
   lcdClear(uart1);
 
   while(isAutonomous()){
-    delay(25);
-    digitalWrite(LED_RED, LOW);
-    digitalWrite(LED_GRN, HIGH);
-    digitalWrite(LED_YLW, LOW);
+
     switch(screen){
 
       case 1:
-      lcdPrint(uart1, 1, "Gyro = %d", gyroGet(gyro));
-      lcdPrint(uart1, 2, "Encoder R = %d", encoderGet(encoderR));
+      lcdPrint(uart1, 1, "Position = %d", getPosition);
+      lcdPrint(uart1, 2, "Distance = %d", getDistance);
         if(lcdReadButtons(uart1) == 2){
           lcdClear(uart1);
           lcdSetText(uart1, 1, "Please wait...");
           delay(btn_time);
           screen = screen + 1;
         }
-        if(lcdReadButtons(uart1) == 1){
-          encoderReset(encoderR);
-          gyroReset(gyro);
-          delay(50);
-        }
-        if(lcdReadButtons(uart1) == 4){
-          analogCalibrate(CHAINBAR);
-          analogCalibrate(ARMPOT);
-          delay(50);
-        }
+        if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+        if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
       break;
 
       case 2:
-      lcdPrint(uart1, 1, "Arm = %d", analogRead(ARMPOT));
-      lcdPrint(uart1, 2, "Chainbar = %d", analogRead(CHAINPOT));
+      lcdPrint(uart1, 1, "Position = %d", getPosition);
+      lcdPrint(uart1, 2, "Distance = %d", getDistance);
         if(lcdReadButtons(uart1) == 2){
             lcdClear(uart1);
             lcdSetText(uart1, 1, "Please wait...");
             delay(btn_time);
             screen = screen + 1;}
-        if(lcdReadButtons(uart1) == 1){
-          encoderReset(encoderR);
-          gyroReset(gyro);
-          delay(50);
-        }
-        if(lcdReadButtons(uart1) == 4){
-          analogCalibrate(CHAINBAR);
-          analogCalibrate(ARMPOT);
-          delay(50);
-        }
+        if(lcdReadButtons(uart1) == 1){/*ADD ACTION*/}
+        if(lcdReadButtons(uart1) == 4){/*ADD ACTION*/}
       break;
 
       }
