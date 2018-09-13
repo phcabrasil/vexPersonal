@@ -1,0 +1,2 @@
+16
+{"last_modification_time":0,"language":1,"import_file":"c:/users/curia/documents/github/vexpersonal/myv5testcode/src/autonomous.cpp","args_hash":8679388835414345395,"includes":[],"dependencies":[],"skipped_by_preprocessor":[],"types":[],"funcs":[{"id":0,"usr":4746349674543882792,"detailed_name":"void autonomous()","short_name_offset":5,"short_name_size":10,"kind":12,"storage":1,"hover":"","comments":"","declarations":[],"spell":"3:6-3:16|-1|1|2","extent":"3:1-5:2|-1|1|0","bases":[],"derived":[],"vars":[],"uses":[],"callees":[]}],"vars":[]}
