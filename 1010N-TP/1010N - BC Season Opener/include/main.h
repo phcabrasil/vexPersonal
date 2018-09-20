@@ -11,12 +11,12 @@ extern "C" {
 // Motors
 #define mtrDriveRF 3
 #define mtrDriveLF 4
-#define mtrDriveRM 5
-#define mtrDriveLM 6
 #define mtrDriveRB 7
 #define mtrDriveLB 8
-#define mtrsElevator 2
-#define mtrsFlywheel 9
+#define mtrElevatorR 2
+#define mtrElevatorL 5
+#define mtrFlywheelT 9
+#define mtrFlywheelB 6
 #define mtrBallIntake 1
 #define mtrCapIntake 10
 

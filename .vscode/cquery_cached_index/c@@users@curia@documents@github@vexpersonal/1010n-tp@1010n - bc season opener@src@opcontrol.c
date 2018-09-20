@@ -7,14 +7,9 @@ void operatorControl() {
 		//   Flywheel and Ball Intake
 		//********************************
 
-		//Flywheel Ramp
-		int i;
-		for (i=1; i<=90; i++){
-			motorSet(mtrsFlywheel, i);
-			delay(20);
-		}
 		//Flywheel Move
-		motorSet(mtrsFlywheel, 90);
+		motorSet(mtrFlywheelT, 90);
+		motorSet(mtrFlywheelB, -90);
 
 		//Ball Intake
 		if (joystickGetDigital(1, 6, JOY_UP)){
@@ -36,7 +31,7 @@ void operatorControl() {
 		int X1 = 0; //X-Axis on Arcade
 		int deadZone = 10; //Deadzone Value Was 20
 		int leftStickVertical = joystickGetAnalog(1, 3); //Joystick command for vertical movement
-		int leftStickHorizontal = joystickGetAnalog(1, 1); //Joystick command for horizontal movement
+		int leftStickHorizontal = joystickGetAnalog(1, 4); //Joystick command for horizontal movement
 
 		//Deadzone Code
 		if (abs (leftStickVertical) > deadZone) {
@@ -60,33 +55,27 @@ void operatorControl() {
 
 		//Left Drive
 		motorSet(mtrDriveRF, Y1 + X1);
-		motorSet(mtrDriveRM, Y1 + X1);
 		motorSet(mtrDriveRB, Y1 + X1);
 		//Right Drive
-		motorSet(mtrDriveLF, - Y1 + X1);
-		motorSet(mtrDriveLM, - Y1 + X1);
+		motorSet(mtrDriveLF, Y1 - X1);
 		motorSet(mtrDriveLB, Y1 - X1);
 
 		//*****************************
 		//   Elevator and Cap Intake
 		//*****************************
 
+		//Variables
+		int rightStickVertical = joystickGetAnalog(1, 2);
+
 		//Elevator
-		if (joystickGetDigital(1, 5, JOY_UP)){
-			motorSet(mtrsElevator, 90);
-		}
-		else if (joystickGetDigital(1, 5, JOY_DOWN)){
-			motorSet(mtrsElevator, -90);
-		}
-		else {
-			motorSet(mtrsElevator, 0);
-		}
+		motorSet(mtrElevatorR, rightStickVertical);
+		motorSet(mtrElevatorL, -rightStickVertical);
 
 		//Cap Intake
-		if (joystickGetDigital(1, 6, JOY_UP)){
+		if (joystickGetDigital(1, 5, JOY_UP)){
 			motorSet(mtrCapIntake, 90);
 		}
-		else if (joystickGetDigital(1, 6, JOY_DOWN)){
+		else if (joystickGetDigital(1, 5, JOY_DOWN)){
 			motorSet(mtrCapIntake, -90);
 		}
 		else {
