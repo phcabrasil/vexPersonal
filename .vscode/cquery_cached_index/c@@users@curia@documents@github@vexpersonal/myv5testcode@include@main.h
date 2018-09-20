@@ -38,12 +38,6 @@
 
 #include "api.h"
 
-//Motor Ports
-#define driveL 1
-#define driveR 2
-
-//Sensors
-
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
  * Motor,

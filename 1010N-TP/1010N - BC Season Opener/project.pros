@@ -1,7 +1,7 @@
 {
     "py/object": "pros.conductor.project.Project",
     "py/state": {
-        "project_name": "Test Code",
+        "project_name": "1010N - BC Season Opener",
         "target": "cortex",
         "templates": {
             "kernel": {
