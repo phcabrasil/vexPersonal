@@ -14,7 +14,7 @@
 #ifndef _OKAPI_RQUANTITY_HPP_
 #define _OKAPI_RQUANTITY_HPP_
 
-//#include <ratio>
+#include <ratio>
 
 namespace okapi {
 template <typename MassDim, typename LengthDim, typename TimeDim, typename AngleDim>

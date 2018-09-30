@@ -1,8 +1,12 @@
 #include "C:\Users\Curia\Documents\GitHub\vexPersonal\1010N-TP\1010N - BC Season Opener\include\main.h"
 #include "C:\Users\Curia\Documents\GitHub\vexPersonal\1010N-TP\1010N - BC Season Opener\include\lcdfunctions.h"
+#include "C:\Users\Curia\Documents\GitHub\vexPersonal\1010N-TP\1010N - BC Season Opener\include\flywheel.h"
+#include "C:\Users\Curia\Documents\GitHub\vexPersonal\1010N-TP\1010N - BC Season Opener\include\drive.h"
+#include "C:\Users\Curia\Documents\GitHub\vexPersonal\1010N-TP\1010N - BC Season Opener\include\lift.h"
 
-int flywheelSpeed = -45;
-int targetFlywheelSpeed = -90;
+
+int flywheelRamp = -45;
+int targetflywheelRamp = -90;
 int rest = 0;
 int ramp = 1;
 
@@ -10,7 +14,6 @@ void operatorControl() {
 	while (1) {
 
 		TaskHandle opcontrollcd_task = taskCreate(opcontrollcd, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-
 
 		//********************************
 		//   Flywheel and Ball Intake
@@ -26,9 +29,9 @@ void operatorControl() {
 		}
 
 		if(ramp == 1){
-			if(flywheelSpeed < targetFlywheelSpeed){
-				for(flywheelSpeed; flywheelSpeed < 90; flywheelSpeed++){
-					moveFlywheel(flywheelSpeed);
+			if(flywheelRamp < targetflywheelRamp){
+				for(flywheelRamp; flywheelRamp < 90; flywheelRamp++){
+					moveFlywheel(flywheelRamp);
 					delay(400);
 				}
 			}
