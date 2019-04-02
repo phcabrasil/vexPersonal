@@ -1,2 +1,0 @@
-16
-{"last_modification_time":1529012925,"language":1,"import_file":"c:/users/curia/documents/github/vexpersonal/random projects/sensorsevidence/src/auto.c","args_hash":17228740901490581481,"includes":[],"dependencies":[],"skipped_by_preprocessor":[],"types":[],"funcs":[{"id":0,"usr":9259272238308784346,"detailed_name":"void autonomous()","short_name_offset":5,"short_name_size":10,"kind":12,"storage":1,"hover":"","comments":"","declarations":[],"spell":"8:6-8:16|-1|1|2","extent":"8:1-14:2|-1|1|0","bases":[],"derived":[],"vars":[],"uses":[],"callees":[]}],"vars":[]}
